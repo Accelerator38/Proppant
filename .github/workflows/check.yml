@@ -1,0 +1,9 @@
+name: C++ example
+on: [push, pull_request]
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: g++ -std=c++17 -Wall -Wextra -Werror -O2 examples/pressure_demo.cpp -o pressure_demo
+      - run: ./pressure_demo 21 pressure.csv
